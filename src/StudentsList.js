@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import StudentItem from './StudentItem';
+import FilterBox from './FilterBox';
 
 const students = [
     {
@@ -29,20 +30,12 @@ export default function StudentList() {
     const [search, setSearch] = useState('')
 
     return (
-        <div className='p-5 mt-3' style={{
-            maxWidth: 500, 
-            width: '100%',
-        }}>
+        <div className='px-3'>
             
-            <div className='mb-4'>
-                <input 
-                    type="text" 
-                    placeholder='Type to search...'
-                    className='form-control'
-                    autoFocus
-                    onChange={(e) => setSearch(e.target.value)}
-                />
-            </div>
+            <FilterBox 
+                className='mb-3' 
+                onFilter={(value) => setSearch(value)} 
+            />
 
             <div className='list-group'>    
                 {students
